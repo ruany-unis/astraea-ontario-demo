@@ -1,0 +1,31 @@
+name: ASTRAEA Public Demo Quality
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-static-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Check JavaScript syntax
+        run: node --check docs/preview.js
+      - name: Verify safe preview assets
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          root=Path("docs")
+          html=(root/"index.html").read_text()
+          assert "TEST ENVIRONMENT" in html
+          assert "Nothing here is shared" in html
+          assert "zero installed" in html.lower() or "0" in html
+          for asset in ("preview.js","preview.css","favicon.svg"):
+              assert (root/asset).is_file(), asset
+          assert 'src="preview.js"' in html
+          assert 'href="preview.css"' in html
+          print("Preview safety and asset checks passed")
+          PY
