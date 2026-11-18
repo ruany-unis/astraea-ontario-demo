@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="theme-color" content="#111e29" />
+  <title>ASTRAEA | Ontario — Live Team Preview</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="preview.css" />
+</head>
+<body>
+ <div class="app">
+   <aside class="sidebar">
+    <div class="brand"><span class="star">✧</span><div><div class="eyebrow">UNIS · ONTARIO</div><div class="brand-title">ASTRAEA</div><div class="tagline">Guard the standard.</div></div></div>
+    <div class="site-state"><span class="pulse"></span> PRE-OPERATIONAL SITE</div>
+    <nav id="nav" aria-label="Main navigation">
+      <button data-page="command" class="nav active"><span>⌖</span> Facility Command</button>
+      <button data-page="inspections" class="nav"><span>◉</span> Inspections</button>
+      <button data-page="actions" class="nav"><span>◎</span> Corrective Actions</button>
+      <button data-page="training" class="nav"><span>◷</span> Training & Renewals</button>
+      <button data-page="binders" class="nav"><span>▥</span> Audit Binders</button>
+      <button data-page="activity" class="nav"><span>⋮</span> Activity Trail</button>
+    </nav>
+    <div class="sidebar-bottom"><span class="tiny-label">AIB / ONTARIO</span><strong>Zero installed aisles.</strong><p>Build the warehouse in the system only as it takes shape in real life.</p><small>ASTRAEA Preview 0.6 · Git-connected</small></div>
+   </aside>
+   <main>
+    <header class="topbar"><span id="crumb">ASTRAEA / FACILITY COMMAND</span><div class="top-right"><span class="test-status"><span class="pulse"></span> LIVE PREVIEW</span><button class="outline" id="auditorToggle" aria-pressed="false">Auditor view: OFF</button></div></header>
+    <section class="notice" role="status"><strong>TEST ENVIRONMENT · NO REAL DATA</strong><span>Each browser stores its own practice entries. Nothing here is shared, approved, or valid audit evidence. Do not enter real staff, passwords, or security plans.</span></section>
+    <div class="content">
+      <section class="page active" id="page-command">
+       <div class="heading"><div><div class="eyebrow gold">00 / YOUR LIVE FACILITY</div><h1>Every obligation.<br><em>One living building.</em></h1><p>Turn a physical location into the single entry point for inspections, corrective actions, and its future audit evidence.</p></div><div class="heading-actions"><button class="outline" id="addLocation">+ Plan an aisle</button><button class="solid" id="newInspectionHome">+ Practice inspection</button></div></div>
+       <div class="scope"><div><span class="scope-icon">◉</span><b>Ontario · site buildout</b><span>Empty warehouse / no installed racks or aisles</span></div><div class="scope-end"><b id="aisleCount">0</b><span>installed aisles</span></div></div>
+       <div class="main-grid">
+        <div class="panel map-panel"><div class="panel-top"><div><small>A / FACILITY INTELLIGENCE</small><h2>Live space diagram</h2><p>Conceptual layout. Actual floorplan and positions require site validation.</p></div><div class="chip">CLICK A ZONE</div></div>
+          <div class="map-outer"><div id="facilityMap" class="facility-map" aria-label="Conceptual facility layout"></div><div class="map-legend"><span><i class="dot live"></i> Existing area</span><span><i class="dot planned"></i> Planned — not installed</span><span><i class="dot issue"></i> Open practice item</span></div></div>
+        </div>
+        <div class="panel dossier"><small>B / SELECTED SPACE</small><h2 id="zoneTitle">Open warehouse floor</h2><div id="zoneDetail" class="zone-detail">Actual operational area. No racks installed.</div><div class="thin-line"></div><small>OPEN TEST ACTIVITY</small><div id="zoneWork" class="zone-work"></div><div class="dossier-actions"><button id="inspectZone" class="solid block">+ Inspect this location</button><button id="showZoneActions" class="outline block">Review its actions →</button></div></div>
+       </div>
+       <div class="stats-band"><div><small>INSTALLED AISLES</small><strong id="statAisles">0</strong><span>Never pre-populated</span></div><div><small>EXISTING AREAS</small><strong id="statZones">6</strong><span>Conceptual positions</span></div><div><small>OPEN TEST ITEMS</small><strong id="statActions">0</strong><span>Local practice only</span></div><div><small>VERIFIED EVIDENCE</small><strong>0</strong><span>Not connected to production</span></div></div>
+       <div class="bottom-grid"><div class="panel memo"><small>C / THE OPERATING RULE</small><h2>One source of truth.</h2><p>ASTRAEA controls the requirements and activity history. The ten AIB binders are published evidence snapshots—never manually maintained competing copies.</p><button class="text-btn" data-jump="binders">Explore the binder architecture →</button></div><div class="panel memo"><small>D / SYSTEM READINESS</small><h2>Ready for usability testing.</h2><p>Practice a floor inspection, record a corrective action, plan an aisle, and explore training/renewal workflows. Shared sign-in and managed data storage are the next gate.</p><button class="text-btn" data-jump="inspections">Run a test inspection →</button></div></div>
+      </section>
+      <section class="page" id="page-inspections"><div class="sectionhead"><small>01 / EXECUTION</small><h1>Inspections <em>without friction.</em></h1><p>Start from an existing area. Planned aisles cannot be inspected as active spaces.</p></div><div class="toolstrip"><button class="solid" id="newInspection">+ New practice inspection</button><button class="outline" id="sampleInspection">Add a clearly marked sample</button></div><div class="panel"><table><thead><tr><th>Date</th><th>Location</th><th>Check</th><th>Outcome</th><th>Reported by</th></tr></thead><tbody id="inspectionRows"></tbody></table></div></section>
+      <section class="page" id="page-actions"><div class="sectionhead"><small>02 / ACCOUNTABILITY</small><h1>Nothing disappears <em>without proof.</em></h1><p>Failure entries create linked actions. Closing a test item is not formal audit sign-off.</p></div><div class="toolstrip"><button class="solid" id="newAction">+ Add practice action</button><button class="outline" id="exportSandbox">Export local test JSON</button></div><div class="panel"><table><thead><tr><th>Title</th><th>Location</th><th>Priority</th><th>Status</th><th>Action</th></tr></thead><tbody id="actionRows"></tbody></table></div></section>
+      <section class="page" id="page-training"><div class="sectionhead"><small>03 / PEOPLE & TIME</small><h1>Training and <em>renewal radar.</em></h1><p>See the intended operating model. Actual person-level records require the secure shared backend.</p></div><div class="training-grid"><div class="panel memo"><small>TRAINING</small><h2>Assign → Complete → Review</h2><p>Annual GMP, onboarding, Food Defense, allergen awareness, recall, and job-specific certification will be scheduled per approved training policy.</p><div class="pill">Requires registered employee accounts</div></div><div class="panel memo"><small>EXPIRATIONS</small><h2>Notice before the deadline.</h2><p>Certificates of insurance, professional licenses, training credentials, and documents will generate reminders and escalations when the secure scheduler is enabled.</p><div class="pill">No fabricated due dates</div></div></div></section>
+      <section class="page" id="page-binders"><div class="sectionhead"><small>04 / AUDIT EVIDENCE</small><h1>The binders are the <em>visible proof.</em></h1><p>These are binder headings only, not completed programs. Publisher and approved evidence remain in the protected ASTRAEA application.</p></div><div class="binder-grid" id="binderGrid"></div></section>
+      <section class="page" id="page-activity"><div class="sectionhead"><small>05 / EVENT HISTORY</small><h1>Accountability you can <em>reconstruct.</em></h1><p>Local browser-only practice trail. Real approved records require protected immutable history and individual authentication.</p></div><div class="toolstrip"><button class="outline" id="clearPractice">Reset sandbox</button></div><div class="panel"><table><thead><tr><th>Time</th><th>Event</th><th>Notes</th></tr></thead><tbody id="eventRows"></tbody></table></div></section>
+    </div>
+   </main>
+ </div>
+ <dialog id="formDialog"><form id="entryForm" method="dialog"><div class="dialoghead"><div><small id="dialogEyebrow">ASTRAEA / TEST RECORD</small><h2 id="dialogTitle">New record</h2></div><button type="button" id="closeDialog" aria-label="Close">✕</button></div><div id="formFields" class="formfields"></div><div class="form-actions"><button type="button" class="outline" id="cancelDialog">Cancel</button><button type="submit" class="solid" id="saveDialog">Save test record</button></div></form></dialog>
+ <script src="preview.js" defer></script>
+</body></html>
